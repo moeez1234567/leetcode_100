@@ -8,7 +8,8 @@
 # z = 678 
 #output = 87
 
-x = -56
+
+
 def reverse_integer(x):
     if x > 1:
         sign = 1
