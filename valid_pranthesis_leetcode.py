@@ -36,5 +36,5 @@ def valid_pranthesis(s : str):
         return False 
 
 
-vp = valid_pranthesis("{[(([]))]}")    
+vp = valid_pranthesis("((]]")    
 print(vp)
