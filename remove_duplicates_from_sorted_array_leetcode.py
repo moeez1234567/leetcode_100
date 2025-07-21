@@ -3,31 +3,17 @@
 # output = 7,  nums = [2,3,4,5,6,7,9] 
 
 def remove_duplicate(l : list):
-    len_l = len(l)
-    last = len_l - 1
-    start = len(l[1:])
-    for i in l:
-        if i in l[start: last]:
-            duplicate = i 
-        if i not in l[start: last]:
-            actual_value = i 
+    i = 0 
+    while (i < len(l)):
+        j = i + 1
+        while (j < len(l) and l[i] == l[j]):
+            l.pop(j)
+            print(l)
 
-        start += 1 
+        i = j 
 
-    return duplicate, actual_value
-            
+    return  l
 
-        # actual_value = i
-        # start = 1
-        # for n in start:
-        #     if i in l[n:]:
-        #         duplicate_valu = i 
-        #         return duplicate_valu , actual_value 
-    #     print(actual_value)    
-    # return actual_value
 
 rd = remove_duplicate([2,3,4,5,5,6])
             
-
-
-        
