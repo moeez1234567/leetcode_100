@@ -120,3 +120,30 @@ def find_maximum_subarray(array : list):
 
 fms = find_maximum_subarray([-4,-2,-1,4,5,-2])
 print(fms)
+
+
+
+# Another way to do that 
+def maximum_subarray(array : list):
+    current_array = array[0] 
+    maximum_array = array[0]
+
+    for arr in array[1:]:
+        current_array = max(arr, current_array + arr)
+        maximum_array = max(current_array, maximum_array)
+
+
+    return maximum_array 
+
+
+
+
+
+
+
+
+
+
+
+ms = maximum_subarray([-2,-4,1,5,-3,-2])
+print(ms)
