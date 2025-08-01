@@ -76,7 +76,7 @@ def check_interseps(l1, l2):
     
     while l2 is not None:
         if id(l2) in set_for_b:
-            return l2.val
+            return l2
         
         l2 = l2.next 
     
