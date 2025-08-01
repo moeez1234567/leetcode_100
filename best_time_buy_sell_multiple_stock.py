@@ -7,6 +7,7 @@
 
 
 def buy_sell_stock(prices):
+   total_profit = 0
    sell = []
    i = 1
    while (i < len(prices)):
@@ -17,15 +18,18 @@ def buy_sell_stock(prices):
 
         sell.append(s)
       
-
-
       i += 1 
-   return sell
+
+   for s in sell:
+      total_profit += s
+
+
+   return total_profit
 
 
         
 
 
-prices = [7,4,5,8,2,6]
+prices =[2,4,5,6,7,3,2,1]
 bss = buy_sell_stock(prices)
 print(bss)
