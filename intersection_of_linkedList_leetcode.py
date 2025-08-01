@@ -71,12 +71,12 @@ def check_interseps(l1, l2):
     print(set_for_b)
 
     while l1 is not None:
-        set_for_b.add(l1)
+        set_for_b.add(id(l1))
         l1 = l1.next 
     
     while l2 is not None:
-        if l2 in set_for_b:
-            return l2 
+        if id(l2) in set_for_b:
+            return l2.val
         
         l2 = l2.next 
     
