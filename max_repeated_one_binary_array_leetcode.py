@@ -23,4 +23,30 @@ def continuously_ones(array : list):
 
 array = [1,1,0,0,0,1,1,1,1,0,1,1,1]
 co = continuously_ones(array)
+print(co) 
+
+
+
+
+# anothwe way to do that
+def continue_ones(array):
+    i = 0
+    max_val = 0
+    ones = 0
+    while (i < len(array)):
+        if array[i] == 1:
+            ones += 1 
+        else:
+            if ones > max_val:
+                max_val = ones 
+                ones = 0 
+
+        i += 1 
+
+    return max_val 
+
+
+
+array = [1,0,0,0,1,1,1,1,0,1,1]
+co = continue_ones(array)
 print(co)
