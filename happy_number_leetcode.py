@@ -5,17 +5,28 @@
 
 def happy_number(num : int):
     i = 0
-    res = num
-    sq = 0
+    d = 0
+    sums = 0
+    st = set()
+    # digits = [int(d) for d in str(num)]
     while True:
-        for i in res:
-            sq += i ** 2 
+        digits = [int(d) for d in str(num)]
+        for d in digits:
+            d = d ** 2 
+            sums += d
+            # sums = sum(d) 
+        num = sums
+        sums = 0
+        if num in st:
+            return False 
+        if num == 1:
+            return f"Happy Number {True}"
+        st.add(num)
         
-        if sq == 1:
-            break
+
+        
 
 
-
-num = 12
+num = 19
 h_n = happy_number(num)
 print(h_n)
