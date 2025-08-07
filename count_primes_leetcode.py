@@ -8,21 +8,19 @@
 # output = 0 
 
 def prime_numbers_integer(num):
-    numbers = []
-    tra = 0
-    if num == 3:
-        numbers.append(2)
-    elif num > 3:
-        numbers.append(2)
-        numbers.append(3)
-    for n in range(2, num):
-        if n % 2 == 0 or n % 3 == 0:
-            tra += n 
-        else:
-            numbers.append(n)  
+    t = [True]*num 
+    if num < 2:
+        return 0 
+    t[0], t[1] = False, False
     
-    return len(numbers)
+    i = 2
+    while (i < num):
+        if t[i] == True:
+            for j in range(i*2,num,i):
+                t[j] = False 
+        i += 1 
 
+    return t.count(True)
 
 num = 12
 pni = prime_numbers_integer(num)
