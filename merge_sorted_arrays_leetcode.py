@@ -28,9 +28,7 @@ def merge_sorted_list(nums1 : list ,m, nums2 : list, n):
     return nums1 
 
 
-    
-
-        
+  
 
 msl = merge_sorted_list(nums1 = [1,2,3,0,0,0],m = 3,nums2 = [5,7,9], n = 3)
 print(msl)

@@ -55,5 +55,51 @@ rl = reverse_linklist(head)
 print(rl)
 ll = linked_list(rl)
 pp = pprint(ll)
-print(pp)
+print(pp) 
+
+
+class LinkedList:
+    def __init__(self, val = 0, next = None):
+        self.val = val 
+        self.next = next 
+
+
+
+
+# right approch to do that
+def reverse_linked_list(head):
+    current = head 
+    previous = None 
+
+    while current:
+        curr_node = current.next 
+        current.next = previous
+        previous = current 
+        current = curr_node 
+
+    return previous
+    
+
+
+def pprint(pre):
+    pri = ""
+    while pre:
+        pri += str(pre.val) 
+        if pre.next:
+            pri += "->"
+        pre = pre.next 
+
+    
+    return pri
+
+
+head = LinkedList(5)
+head.next = LinkedList(7)
+head.next.next = LinkedList(8)
+head.next.next.next = LinkedList(11)
+
+
+rll = reverse_linked_list(head)
+p = pprint(rll)
+print(p)
 
