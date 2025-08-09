@@ -12,11 +12,14 @@ class MyStack:
         self.deque = deque()
 
     def push(self,val):
-        self.deque.append(val)
+        self.deque.append(val) 
+
+        for _ in range(len(self.deque )- 1):
+            self.deque.append(self.deque.popleft())
 
 
     def pop(self):
-        self.deque.popleft()
+        return self.deque.popleft()
        
 
     def top(self):
@@ -36,6 +39,11 @@ st = MyStack()
 st.push(4)
 st.pop()
 st.push(5)
+st.push(8)
+st.push(3)
+st.push(1)
+st.push(9)
+st.push(3)
 # st.pop()
 t = st.top()
 e = st.empty()
@@ -43,3 +51,52 @@ print(st.deque)
 print(e)
 print(t)
 
+
+
+# doing this without using the deque 
+
+class MyStacks:
+    def __init__(self):
+        self.q1 = []
+        self.q2 = []
+
+
+    def push(self, val):
+        self.q1.append(val)
+
+
+    def pop(self):
+        for _ in range(len(self.q1) -1):
+            self.q2.append(self.q1.pop(0))
+        popped = self.q1.pop() 
+
+        for _ in range(len(self.q2)):
+            self.q1.append(self.q2.pop(0))
+
+        return popped 
+    
+    def top(self):
+        return self.q1[-1]
+    
+
+    def empty(self):
+        if len(self.q1) == 0:
+            return True 
+        else:
+            return False 
+        
+
+
+
+stk = MyStacks()
+stk.empty()
+stk.push(4)
+stk.push(6)
+stk.push(8)
+stk.push(9)
+t = stk.top()
+stk.pop()
+
+
+print(stk.q1)
+print(t)
