@@ -66,6 +66,7 @@ class TreeNode:
 def invert_tree(tree : TreeNode):
     l = []
     l.append(tree)
+    print(len(l))
     while (len(l) != 0):
         node = l.pop(0)
         if node:
@@ -85,11 +86,21 @@ def invert_tree(tree : TreeNode):
 
 
 
-# def pprint(l):
-#     while l:
-#         print(l.val)
-#         pprint(l.left)
-#         pprint(l.right)
+def pprint(tree: TreeNode):
+    l = [tree]
+    tr = []
+    # l.append(tree)
+    while l:
+        node = l.pop(0)
+        if node:
+            tr.append(node.val)
+        if node.left:
+            l.append(node.left)
+        if node.right:
+            l.append(node.right) 
+
+    return tr
+            
 
 
 tree = TreeNode(4)
@@ -101,11 +112,12 @@ tree.left.left = TreeNode(10)
 tree.left.right = TreeNode(12)
 
 tree.right.left = TreeNode(14)
-tree.left.right = TreeNode(16)
+tree.right.right = TreeNode(16)
 
 
 
 
 i = invert_tree(tree)
 pp = pprint(i)
+print(pp)
 # print(i)
